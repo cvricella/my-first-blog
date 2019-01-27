@@ -35,6 +35,14 @@
             while I was still in college (>'.')> </p>
             <p>Published: 1.26.2019, 10:41 AM</p>
         </div>
+
+        {% for posts in posts %}
+            <div>
+                <h3>{{posts.title}}:</h3>
+                <p>{{posts.text|linebreaksbr}}</p>
+                <p>published: {{posts.published_date}}</p>
+            </div>
+       {% endfor %}
     </body>
 </html>
 
