@@ -1,51 +1,23 @@
 <html>
     <head>
-        <title>Vricella GIS and More!</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <title> GIS Blog </title>
     </head>
     <body>
         <div>
-            <h1><em><u>About Me and This Site</em></u></h1>
-            <p> Hi! My name is Carl Vricella and I am an aspiring environmental scientist who specializes in spatial analysis. I hold a B.S in Environmental
-                Science and I am currently pursuing a Masters Certification in Geo Spatial Science. I have worked for Non-profits
-                doing spatial modeling/analysis and for consulting firms performing figure creation and analysis.
-                This website will be used to blog about GIS, Technology and anything else I might find interesting. Additionally,
-                I will also post tutorials and keep an updated portfolio here. Feel free to contact me if you have any
-                questions or would like me to create a specific tutorial. </p>
-            <p>Last Updated: 1.26.2019, 10:15 AM </p>
+            <h1> GIS Blog </h1>
         </div>
 
+#Add post to site page with these lines; use django templates and tags
+        {% for post in posts %}
         <div>
-            <h2><em><u>Blog Section</em></u></h2>
-            <h3>First Post:</h3>
-
-            <p>Currently working on a couple different spatial analyses. First I have been trying my hand at some business
-            location analysis, I'm mainly following this text
-            <a href="https://www.amazon.com/Business-Site-Selection-Location-Analysis/dp/0470191066/ref=sr_1_2?ie=UTF8&qid=1548516295&sr=8-2&keywords=Business+location+analysis">here.</a>
-            It's a fairly simple and well organized book, not overly technical in regards to GIS and helpful with the underlying
-            theory of finding good business locations and the logistics of running a larger business. Second I am going
-            back to an older project I did for a Non-Profit a while back. I created a model for them to analyze an entire
-            county for the best farmland and prioritize it for conservation (they were updating a farmland protection plan).
-            A couple years later and they need an update and I am more than happy to help d: I have improved my GIS and programming skills
-            and can't wait to see what I can do now! Unfortunately, I did this project using ArcMap and while I love
-            QGIS; due to time constraints, files being in geodatabase format, and the use of model builder; I will have to
-            make my improvements using ESRI software. Not to worry though, after this project is done and I have some free time
-                I will upload a tutorial on creating a LESA model using ArcMap AND another doing it in QGIS (after I figure that out of course).
-            In the meantime you can actually check out my older version of the model and the write-up for it
-            <a href="http://occainfo.org/wp-content/uploads/2017/06/Appendix-C_LESA.pdf">here.</a> Im open to critique and suggestions for the update, but go easy this was my first major project
-            while I was still in college (>'.')> </p>
-            <p>Published: 1.26.2019, 10:41 AM</p>
+            <h2>{{post.title}}:</h2>
+            <p>{{post.text|linebreaksbr}}</p>
+            <p>published: {{post.published_date}}</p>
         </div>
-
-        {% for posts in posts %}
-            <div>
-                <h3>{{posts.title}}:</h3>
-                <p>{{posts.text|linebreaksbr}}</p>
-                <p>published: {{posts.published_date}}</p>
-            </div>
-       {% endfor %}
+        {% endfor %}
     </body>
 </html>
-
-
 
 
